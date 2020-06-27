@@ -1,5 +1,7 @@
 package service;
 
+import utill.JacksonUtill;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -10,11 +12,11 @@ public class FileService {
     static String userDir = System.getProperty("user.dir");
     static String separator = System.getProperty("file.separator");
     static String fileDir = userDir + separator + "files";
-    static String fileName = userDir + separator + "files" + separator + "citilinkItem.txt";
+    static String fileName = userDir + separator + "files" + separator + "citilinkItem.xml";
 
-    public static void writeItemTofile(String url, boolean append) {
+    public static void writeItemToXMLfile(String url, boolean append) {
         checkAndCreateFile();
-        String text = SitilinkParse.getItemFromURL(url).toString();
+        String text = JacksonUtill.itemToXML(SitilinkParse.getItemFromURL(url));
         try (FileWriter fileWriter = new FileWriter(fileName, append);
              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
             bufferedWriter.write(text + "\n");
