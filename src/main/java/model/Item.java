@@ -9,8 +9,9 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 public class Item {
+    private Integer id;
     private String name;
     private String price;
     private String image;
-    private String id;
+    private int item_id;
 }

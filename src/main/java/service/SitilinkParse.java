@@ -20,7 +20,7 @@ public class SitilinkParse {
                 .builder()
                 .name(itemName)
                 .price(itemPrice)
-                .id(itemID)
+                .item_id(Integer.parseInt(itemID))
                 .image(itemImage)
                 .build();
     }
